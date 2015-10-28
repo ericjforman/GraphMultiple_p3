@@ -1,4 +1,5 @@
 // Graph Multiple Sensors in Processing
+// *** Example with 2 data packets showing raw and smoothed sensor value ***
 
 // Takes ASCII-encoded strings from serial port and graphs them.
 // Expects COMMA or TAB SEPARATED values, followed by a newline, or newline and carriage return
@@ -11,8 +12,8 @@
 import processing.serial.*;
 Serial myPort;
 
-int numValues = 3; // number of input values or sensors
-// * change this to match how many values your Arduino is sending *
+int numValues = 2; // number of input values or sensors
+// * in this example, showing 1 sensor sent as 2 data packets: raw and smoothed *
 
 float[] values = new float[numValues];
 int[] min = new int[numValues];
@@ -46,32 +47,20 @@ void setup() {
   // *edit these* to match how many values you are reading, and what colors you like 
   values[0] = 0;
   min[0] = 0;
-  max[0] = 1023; // full range example, e.g. any analogRead
+  max[0] = 1023; // raw sensor value
   valColor[0] = color(255, 0, 0); // red
 
   values[1] = 0; 
   min[1] = 0;
-  max[1] = 700;  // partial range example, e.g. IR distance sensor
+  max[1] = 1023;  // smoothed sensor value
   valColor[1] = color(0, 255, 0); // green
-
-  values[2] = 0;
-  min[2] = 0;
-  max[2] = 1;    // digital input example, e.g. a button
-  valColor[2] = color(0, 0, 255); // blue
-  /*
- // example for adding a 4th value:
-   values[3] = 0;
-   min[3] = 0;
-   max[3] = 400; // custom range example 
-   valColor[3] = color(255, 0, 255); // purple
-   */
+  
 }
 
 
 void draw() {
   // in the Arduino website example, everything is done in serialEvent
   // here, data is handled in serialEvent, and drawing is handled in draw()
-  // (either method can work)
 
   if (clearScreen) {
     // two options for erasing screen, i like the translucent option to see "history"
