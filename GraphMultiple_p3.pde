@@ -114,6 +114,14 @@ void draw() {
     //println("\t"+mappedVal); // <- uncomment this to debug mapped values
   }
   //println(); // <- uncomment this to read debugged values easier
+  
+  // if at the edge of the screen, go back to the beginning:
+  if (xPos >= width) {
+    xPos = 0;
+    clearScreen = true;
+  } else {
+    xPos++; // increment the graph's horizontal position
+  }
 }
 
 
@@ -133,6 +141,7 @@ void serialEvent(Serial myPort) {
       // if the array has at least the # of elements as your # of sensors, you know
       //   you got the whole data packet.
       if (values.length >= numValues) {
+        /* you can increment xPos here instead of in draw():
         // if at the edge of the screen, go back to the beginning:
         if (xPos >= width) {
           xPos = 0;
@@ -140,6 +149,7 @@ void serialEvent(Serial myPort) {
         } else {
           xPos++; // increment the graph's horizontal position
         }
+        */
       }
     }
   }
