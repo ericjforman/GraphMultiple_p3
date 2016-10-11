@@ -71,7 +71,7 @@ void setup() {
 void draw() {
   // in the Arduino website example, everything is done in serialEvent
   // here, data is handled in serialEvent, and drawing is handled in draw()
-  // when drawing every loop in draw(), you can see gaps when new data is not yet available
+  // when drawing every loop in draw(), you can see gaps when not updating as fast as data comes in
   // when drawing in serialEvent(), you can see frequency of data updates reflected in how fast graph moves
   // (either method can work)
 
