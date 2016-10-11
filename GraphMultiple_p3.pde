@@ -5,7 +5,7 @@
 // Can read 10-bit values from Arduino, 0-1023 (or even higher if you wish)
 // Can also read float values
 
-// Last modified October 2015
+// Last modified October 2016
 // by Eric Forman | www.ericforman.com | ericjformanteaching.wordpress.com
 
 import processing.serial.*;
