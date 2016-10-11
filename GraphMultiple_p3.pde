@@ -115,13 +115,14 @@ void draw() {
   }
   //println(); // <- uncomment this to read debugged values easier
   
+  // increment the graph's horizontal position:
+  xPos++; 
   // if at the edge of the screen, go back to the beginning:
-  if (xPos >= width) {
+  if (xPos > width) {
     xPos = 0;
     clearScreen = true;
-  } else {
-    xPos++; // increment the graph's horizontal position
   }
+  
 }
 
 
@@ -142,12 +143,10 @@ void serialEvent(Serial myPort) {
       //   you got the whole data packet.
       if (values.length >= numValues) {
         /* you can increment xPos here instead of in draw():
-        // if at the edge of the screen, go back to the beginning:
-        if (xPos >= width) {
+        xPos++;
+        if (xPos > width) {
           xPos = 0;
           clearScreen = true;
-        } else {
-          xPos++; // increment the graph's horizontal position
         }
         */
       }
