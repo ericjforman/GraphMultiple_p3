@@ -1,5 +1,5 @@
 # GraphMultiple_p3
-Graph multiple sensors in Processing from Arduino serial data
+Graph multiple sensors in Processing from Arduino serial data. Arduino code and other notes: https://hellocircuits.com/2013/10/04/arduino-to-processing-graphing-multiple-sensors/
 
 This code can be easily adjusted for fewer or more sensors. 
 
